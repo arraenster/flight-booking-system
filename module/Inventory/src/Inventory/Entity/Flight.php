@@ -126,13 +126,20 @@ class Flight
     }
 
     /**
-     * @param string $flightDate
+     * @param \DateTime $flightDate
+     *
+     * @throws \Exception
      * @return $this
      */
     public function setFlightDate($flightDate)
     {
-        $this->flightDate = $flightDate;
-        return $this;
+
+        if ($flightDate instanceof \DateTime) {
+            $this->flightDate = $flightDate;
+            return $this;
+        } else {
+            throw new \Exception('Flight date should be instance of DateTime');
+        }
     }
 
     /**
