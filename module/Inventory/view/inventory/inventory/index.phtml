@@ -1,0 +1,53 @@
+<?php
+
+$title = 'All flights';
+$this->headTitle($title);
+
+echo "<h1>" . $this->escapeHtml($title) . "</h1>";
+
+foreach ($this->flashMessenger()->getMessages() as $message) {
+    echo "<span class='label label-success'>" . $message . "</span>";
+}
+
+foreach ($this->flashMessenger()->getErrorMessages() as $message) {
+    echo "<span class='label label-danger'>" . $message . "</span>";
+}
+
+?>
+
+<table class="table">
+    <thead>
+    <th>Flight number</th>
+    <th>Origin</th>
+    <th>Destination</th>
+    <th>Flight date</th>
+    <th>Airline</th>
+    <th>Aircraft</th>
+    <th>Availability</th>
+    <th>Price</th>
+    <th></th>
+    </thead>
+    <tbody>
+
+<?php
+foreach ($this->flights as $flight) {
+    echo "<tr>";
+    echo "<td>" . $flight['flightNumber'] . "</td>";
+    echo "<td>" . $flight['origin'] . "</td>";
+    echo "<td>" . $flight['destination'] . "</td>";
+    echo "<td>" . $flight['flightDate']->format('Y-m-d H:i') . "</td>";
+    echo "<td>" . $flight['airline'] . "</td>";
+    echo "<td>" . $flight['aircraft'] . "</td>";
+    echo "<td>" . $flight['availability'] . "</td>";
+    echo "<td>" . $flight['price'] . "</td>";
+    echo "<td><a href='" . $this->url('inventory', ['action'=>'delete', 'id' => $flight['id']]) . "'>delete</a></td>";
+    echo "<td><a href='" . $this->url('inventory', ['action'=>'edit', 'id' => $flight['id']]) . "'>edit</a></td>";
+    echo "</tr>";
+}
+?>
+    </tbody>
+</table>
+
+<?php
+
+echo "<a href='" . $this->url('inventory', ['action'=>'add']) . "'>Add new flight</a>";

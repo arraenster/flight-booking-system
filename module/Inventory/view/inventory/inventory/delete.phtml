@@ -1,0 +1,14 @@
+<p>Are you sure that you want to delete "<?php echo $this->escapeHtml($flight['flightNumber']); ?>"? </p>
+<?php
+$url = $this->url('inventory', array(
+    'action' => 'delete',
+    'id'     => $flight['id'],
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo (int) $flight['id']; ?>" />
+        <input type="submit" name="del" value="Yes" />
+        <input type="submit" name="del" value="No" />
+    </div>
+</form>

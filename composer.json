@@ -1,0 +1,61 @@
+{
+    "name": "arraenster/flight-booking",
+    "description": "Simple flight booking system with admin panel",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "mvc",
+        "zf2",
+        "flight",
+        "admin"
+    ],
+    "authors": [
+        {
+            "name": "Vladyslav Semerenko",
+            "email": "vladyslav.semerenko@gmail.com",
+            "role": "developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "doctrine/common": ">=2.1",
+        "doctrine/doctrine-orm-module": "0.10.*",
+        "zendframework/zend-component-installer": "^1.0 || ^0.3 || ^1.0.0-dev@dev",
+        "zendframework/zend-mvc": "~2.3",
+        "zendframework/zend-form": "2.9",
+        "zfcampus/zf-development-mode": "^3.0",
+        "zendframework/zend-db": "^2.8.1",
+        "bjyoungblood/bjy-profiler": ">=1.0",
+        "zendframework/zend-developer-tools": "dev-master",
+        "zendframework/zend-servicemanager": "~2.3",
+        "zendframework/zend-router": "~3.0",
+        "ircmaxell/random-lib": "~1.0",
+        "zendframework/zend-i18n": "~2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/Application/",
+            "Inventory\\": "module/Inventory/src/Inventory/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ApplicationTest\\": "module/Application/test/"
+        }
+    },
+    "scripts": {
+        "development-disable": "zf-development-mode disable",
+        "development-enable": "zf-development-mode enable",
+        "development-status": "zf-development-mode status",
+        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php"
+    },
+    "require-dev": {
+        "zendframework/zend-developer-tools": "dev-master",
+        "phpunit/phpunit": "4.6",
+        "codeception/codeception": "2.0.9",
+        "flow/jsonpath": "0.2.4"
+    }
+}

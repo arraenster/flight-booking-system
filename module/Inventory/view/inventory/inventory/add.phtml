@@ -1,0 +1,32 @@
+<?php
+$title = 'Add new flight';
+$this->headTitle($title);
+
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('inventory', array('action' => 'add')));
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formRow($form->get('security'));
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('origin'));
+echo '<br>';
+echo $this->formRow($form->get('destination'));
+echo '<br>';
+echo $this->formRow($form->get('flightDate'));
+echo '<br>';
+echo $this->formRow($form->get('airline'));
+echo '<br>';
+echo $this->formRow($form->get('aircraft'));
+echo '<br>';
+echo $this->formRow($form->get('flightNumber'));
+echo '<br>';
+echo $this->formRow($form->get('availability'));
+echo '<br>';
+echo $this->formRow($form->get('price'));
+echo '<br>';
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+
